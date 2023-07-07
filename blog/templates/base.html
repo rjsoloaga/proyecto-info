@@ -1,21 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <title>Mi blog | {% block titulo %}{% endblock titulo %}</title>
-</head>
-<body class="contenedor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Blog | {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  </head>
+  <body class="contenedor">
     <div>
-        <img src="{% static 'img/logo.jpg' %}" width="10%"/>
-        <a href="{% url 'home' %}">IR A HOME</a>
-        <a href="{% url 'nosotros' %}">IR A NOSOTROS</a>
-        <a href="{% url 'noticias:listar' %}">IR A NOTIS</a>
-        
-    </div>
-    {% block contenido %}
-    {% endblock contenido %}
-</body>
+      <a href="{% url 'home' %}">IR A HOME</a>
+      <a href="{% url 'nosotros' %}">IR A NOSOTROS</a>
+      <a href="{% url 'noticias:listar' %}">IR A NOTICIAS</a>
+      {% comment %} {% if user.is_autenticated %}
+        <b>Hola {{username}}</b>
+        <a href="{% url 'logout' %}">LOGOUT</a>
+      {% else %}
+        <a href="{% url 'login' %}">LOGIN</a>
+        <a href="{% url 'registro' %}">REGISTRARSE</a>
+      {% endif %}
+    </div> {% endcomment %}
+    {% block contenido %}{% endblock contenido %}
+  </body>
 </html>

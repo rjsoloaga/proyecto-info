@@ -1,8 +1,11 @@
+from django import views
 from django.urls import path
 from .views import user_login, user_logout
 
+app_name = "usuarios"
+
 urlpatterns = [
-    path('login/', user_login, name='login')
+    path('login/', user_login, name='login'),
     path('logout/', user_logout, name='logout')
-    path('login/', user_login, name='login')
+    #path('registro/', views.Registro.as_view(), name='registro')
 ]
