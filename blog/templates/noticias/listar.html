@@ -5,6 +5,25 @@
 
 {% block contenido %}
     <h2>Aca estan mis noticias</h2>
+        <div class="submenu">
+            <a href="{% url 'noticias:listar' %}">TODAS</a>
+            {% for cat in categorias %}
+                <a href="?id={{cat.pk}}">{{cat.nombre}}</a>
+            {% endfor %}
+        </div>
+        {% if noticias %}
+            {% for noti in noticias %}
+                <img src="{{noti.imagen.url}}" width="50">
+                <p><a href="{% url 'noticias:detalle' noti.pk %}">TITULO: {{noti.titulo}}</a></p>
+                <p>FECHA: {{noti.fecha_de_publicacion}}</p>
+                <p>CATEGORIA: {{noti.categoria_noticia}}</p>
+                <p>CONTENIDO: {{noti.contenido}}</p>
+            {% endfor %}
+        {% else %}
+            <h2>no hay notis</h2>
+        {% endif %}
+
+
 {% endblock contenido %}
 
-
+{% endblock contenido %}

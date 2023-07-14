@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'apps.noticias',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
